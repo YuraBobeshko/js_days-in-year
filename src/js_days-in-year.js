@@ -2,23 +2,17 @@
 
 function daysInYear(year) {
 
-  if (parseInt(year) === year) {
+  try {
+    if (!Number.isInteger(year)) {
+      throw new Error('exception');
+    }
 
-    years.push(year);
-    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
-
-      return 366;
+    if ((year % 100 !== 0 && year % 4 === 0) || year % 400 === 0) {
+     return 366 ;
     } else {
-
       return 365;
     }
+  } catch (error) {
+    return error;
   }
-  return 'exception';
 }
-
-daysInYear(2019); // 365
-daysInYear('2019'); // exception
-daysInYear(2020); // 366
-daysInYear(2020.2); // exception
-daysInYear(2100); // 365
-daysInYear({year: 2100}); // exception
