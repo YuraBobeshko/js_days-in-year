@@ -1,13 +1,11 @@
 'use strike'
 
-const years = [];
-
 function daysInYear(year) {
 
-  if (!years.includes(year) && parseInt(year) === year) {
+  if (parseInt(year) === year) {
 
     years.push(year);
-    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
 
       return 366;
     } else {
@@ -15,8 +13,7 @@ function daysInYear(year) {
       return 365;
     }
   }
-  
-  return "exception";
+  return 'exception';
 }
 
 daysInYear(2019); // 365
